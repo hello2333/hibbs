@@ -1,20 +1,14 @@
 package com.zhning.hibbs;
 
 import com.google.common.collect.Maps;
-import com.zhning.hibbs.dao.BaseDao;
-import com.zhning.hibbs.dao.UserDao;
-import com.zhning.hibbs.dao.impl.BaseDaoImpl;
+import com.zhning.hibbs.mapper.UserMapper;
 import com.zhning.hibbs.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.validation.ValidationUtils;
-import org.springframework.web.bind.ServletRequestUtils;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.servlet.ModelAndView;
 
 import java.util.HashMap;
 import java.util.List;
@@ -24,14 +18,14 @@ import java.util.List;
 public class HelloController {
 
     @Autowired
-    private UserDao userDao;
+    private UserMapper userMapper;
 
     @RequestMapping(method = RequestMethod.GET)
     @ResponseBody
     public String printWelcome(ModelMap model) {
         HashMap<String, Integer> user = Maps.newHashMap();
         user.put("id", 1);
-        List<User> res = userDao.findByProp(user);
+        List<User> res = userMapper.findByProp(user);
         return res.get(0).toString();
     }
 

@@ -1,6 +1,6 @@
-package com.zhning.hibbs.dao.impl;
+package com.zhning.hibbs.mapper.impl;
 
-import com.zhning.hibbs.dao.UserDao;
+import com.zhning.hibbs.mapper.UserMapper;
 import com.zhning.hibbs.entity.User;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
@@ -12,7 +12,7 @@ import java.sql.SQLException;
  * Created by zhning on 2016/3/13.
  */
 @Repository
-public class UserDaoImpl extends BaseDaoImpl<User> implements UserDao {
+public class UserMapperImpl extends BaseDaoImpl<User> {//implements UserMapper {
     @Override
     public String getTableName() {
         return "user";

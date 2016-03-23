@@ -1,13 +1,11 @@
-package com.zhning.hibbs.dao;
+package com.zhning.hibbs.mapper;
 
 import com.zhning.hibbs.entity.Post;
-
-import java.util.List;
 
 /**
  * Created by zhning on 2016/2/5.
  */
-public interface PostDao extends BaseDao<Post>{
+public interface PostMapper extends BaseMapper<Post> {
 //    List<Post> findAllByUserId(long id);
 //    List<Post> findCollectByUserId(long id);
 //    List<Post> findByCatg(long id);

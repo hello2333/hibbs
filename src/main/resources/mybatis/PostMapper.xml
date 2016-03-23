@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.zhning.hibbs.mapper.PostMapper">
+
+    <resultMap type="Post" id="PostResult">
+        <id property="id" column="post_id"/>
+        <result property="userId" column="post_user_id"/>
+        <result property="catgId" column="post_catg_id"/>
+        <result property="title" column="post_title"/>
+        <result property="text" column="post_text"/>
+        <result property="publishTime" column="post_time"/>
+        <result property="followCount" column="post_support_count"/>
+        <result property="supportCount" column="post_follow_count"/>
+        <result property="collectCount" column="post_collect_count"/>
+    </resultMap>
+
+    <insert id="insert" parameterType="Post" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO
+        post(post_user_id, post_catg_id, post_title, post_text, post_time)
+        VALUES (#{userId}, #{catgId}, #{title}, #{text}, #{publishTime});
+    </insert>
+
+    <insert id="insertPics" useGeneratedKeys="true" keyColumn="post_pic_id">
+        INSERT INTO
+        post_pic(post_id, post_url)
+        VALUES (#{param1}, #{param2});
+    </insert>
+
+    <delete id="delete" parameterType="int">
+        DELETE FROM post WHERE post_id = #{postId}
+    </delete>
+
+    <delete id="deletePic" parameterType="int">
+        DELETE FROM post_pic WHERE post_pic_id = #{postPicId}
+    </delete>
+    
+    <update id="update" parameterType="Post">
+        UPDATE post
+        <set>
+            <if test="catgId != 0">post_catg_id = #{catgId}</if>
+            <if test="title != null">post_title = #{title}</if>
+            <if test="text != null">post_text = #{text}</if>
+        </set>
+    </update>
+</mapper>
