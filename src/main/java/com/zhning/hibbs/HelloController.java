@@ -1,6 +1,8 @@
 package com.zhning.hibbs;
 
 import com.google.common.collect.Maps;
+import com.zhning.hibbs.entity.Post;
+import com.zhning.hibbs.mapper.PostMapper;
 import com.zhning.hibbs.mapper.UserMapper;
 import com.zhning.hibbs.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,15 +20,22 @@ import java.util.List;
 public class HelloController {
 
     @Autowired
-    private UserMapper userMapper;
+    private PostMapper postMapper;
 
     @RequestMapping(method = RequestMethod.GET)
     @ResponseBody
     public String printWelcome(ModelMap model) {
-        HashMap<String, Integer> user = Maps.newHashMap();
-        user.put("id", 1);
-        List<User> res = userMapper.findByProp(user);
-        return res.get(0).toString();
+        Post post = new Post();
+        post.setUserId(1);
+        post.setCatgId(1);
+        post.setTitle("First Title");
+        post.setText("First Text");
+        post.setPublishTime(System.currentTimeMillis());
+        postMapper.insert(post);
+//        HashMap<String, Integer> user = Maps.newHashMap();
+//        user.put("id", 1);
+//        List<User> res = userMapper.findByProp(user);
+        return "hello";
     }
 
     /*@RequestMapping(value = {"/index/{id}","index2"}, method = RequestMethod.GET)

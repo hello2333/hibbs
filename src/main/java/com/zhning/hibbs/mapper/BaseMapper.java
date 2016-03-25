@@ -20,7 +20,7 @@ public interface BaseMapper<T> {
      * @param id
      * @return
      */
-    T findBySelfId(long id);
+    //T findBySelfId(long id);
 
     /**
      * 通过指定条件查询entity
