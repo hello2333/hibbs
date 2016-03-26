@@ -17,7 +17,7 @@ public class Post{
      */
     long catgId;
     /**
-     * 帖子c标题
+     * 帖子标题
      */
     String title;
     /**

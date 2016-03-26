@@ -1,10 +1,7 @@
 package com.zhning.hibbs;
 
-import com.google.common.collect.Maps;
 import com.zhning.hibbs.entity.Post;
 import com.zhning.hibbs.mapper.PostMapper;
-import com.zhning.hibbs.mapper.UserMapper;
-import com.zhning.hibbs.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -32,6 +29,8 @@ public class HelloController {
         post.setText("First Text");
         post.setPublishTime(System.currentTimeMillis());
         postMapper.insert(post);
+        long id = post.getId();
+        System.out.println("id = " + id);
 //        HashMap<String, Integer> user = Maps.newHashMap();
 //        user.put("id", 1);
 //        List<User> res = userMapper.findByProp(user);
