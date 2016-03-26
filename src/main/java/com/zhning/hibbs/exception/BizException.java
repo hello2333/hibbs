@@ -42,7 +42,8 @@ public class BizException extends Exception{
         NULLENTITY(1001,"实体为空"),
         POSTNOTEXIST(1002,"帖子id不存在"),
         CATGNOTEXIST(1003,"类别id不存在"),
-        USERNOTEXIST(1004,"用户id不存在")
+        USERNOTEXIST(1004,"用户id不存在"),
+        POSTFOLLOWNOTEXIST(1005,"跟帖id不存在")
         ;
         private int code;
         private String msg;
