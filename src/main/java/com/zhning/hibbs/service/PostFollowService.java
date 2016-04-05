@@ -12,7 +12,8 @@ public interface PostFollowService {
     /**
      * 发布跟帖
      * @param postFollow
-     * @throws BizException NULLENTITY(1001,"实体为空")
+     * @throws BizException NULLENTITY(1001,"实体为空") POSTNOTEXIST(1002,"帖子id不存在")——理论上到
+     * 这一步应该不存在id不存在的问题了,因为前面应该先检测帖子id的
      */
     void publishPostFollow(PostFollow postFollow) throws BizException;
 

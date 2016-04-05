@@ -7,9 +7,9 @@ public class PostComment{
     long id;
     long followId;
     long userId;
+    long user2Id;
     String text;
     long time;
-    int replyCount;
     int floor;
     int state;
 
@@ -37,6 +37,14 @@ public class PostComment{
         this.userId = userId;
     }
 
+    public long getUser2Id() {
+        return user2Id;
+    }
+
+    public void setUser2Id(long user2Id) {
+        this.user2Id = user2Id;
+    }
+
     public String getText() {
         return text;
     }
@@ -51,14 +59,6 @@ public class PostComment{
 
     public void setTime(long time) {
         this.time = time;
-    }
-
-    public int getReplyCount() {
-        return replyCount;
-    }
-
-    public void setReplyCount(int replyCount) {
-        this.replyCount = replyCount;
     }
 
     public int getFloor() {
