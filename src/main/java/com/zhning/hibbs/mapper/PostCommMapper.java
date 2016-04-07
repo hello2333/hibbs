@@ -7,6 +7,6 @@ import java.util.List;
 /**
  * Created by zhning on 2016/2/5.
  */
-public interface PostCommMapper extends BaseMapper<PostComment> {
+public interface PostCommMapper {
     List<PostComment> findByFollowId(long id);
 }
