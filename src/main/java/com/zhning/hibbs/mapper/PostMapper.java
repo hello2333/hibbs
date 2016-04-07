@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 /**
  * Created by zhning on 2016/2/5.
  */
-public interface PostMapper extends BaseMapper<Post> {
-
+public interface PostMapper{
+    void createPost(Post post);
 }
